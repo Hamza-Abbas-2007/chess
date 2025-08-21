@@ -97,6 +97,13 @@ def get_valid_moves(piece, x, y):
         # two steps forward from starting row
         if x == 6 and board[x-1][y] in ("we", "be") and board[x-2][y] in ("we", "be"):
             moves.append((x-2, y))
+    if piece == "bp":
+        # one step forward
+        if x > 0 and board[x+1][y] in ("we", "be"):
+            moves.append((x+1, y))
+        # two steps forward from starting row
+        if x == 1 and board[x+1][y] in ("we", "be") and board[x+2][y] in ("we", "be"):
+            moves.append((x+2, y))
     return moves
 
 
